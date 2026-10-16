@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" id="html-root">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>حلويات اللوبان — Pâtisserie Loubane | Laâyoune</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,800;1,600&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --terracotta: #C84B31;
+      --terracotta-dark: #8F2D19;
+      --gold: #D4AF37;
+      --gold-light: #F7E5A9;
+      --cream: #FFFDF9;
+      --cream-alt: #F8F1E7;
+      --choco: #261610;
+      --text-muted: #6E564C;
+      --green-wa: #25D366;
+      --shadow-soft: 0 12px 32px rgba(38, 22, 16, 0.09);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Cairo', 'Montserrat', sans-serif;
+      background-color: var(--cream);
+      color: var(--choco);
+      line-height: 1.6;
+      padding-bottom: 90px;
+    }
+
+    /* Bandeau Démo Nadarly */
+    .demo-bar {
+      background: linear-gradient(90deg, #111 0%, #2C1A14 100%);
+      color: #FFF;
+      font-size: 0.76rem;
+      padding: 8px 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--gold);
+      direction: ltr;
+    }
+
+    .demo-bar span {
+      color: var(--gold-light);
+      font-weight: 700;
+    }
+
+    .demo-bar button {
+      background: rgba(255,255,255,0.15);
+      color: #FFF;
+      border: none;
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-size: 0.7rem;
+      cursor: pointer;
+    }
+
+    /* Navigation Sticky */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 253, 249, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.35);
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-badge {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--terracotta), var(--terracotta-dark));
+      border: 2px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      color: #FFF;
+      flex-shrink: 0;
+    }
+
+    .brand-names {
+      line-height: 1.15;
+    }
+
+    .brand-names .ar {
+      font-size: 1.15rem;
+      font-weight: 900;
+      color: var(--terracotta);
+      display: block;
+    }
+
+    .brand-names .fr {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--choco);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .lang-toggle {
+      background: var(--cream-alt);
+      border: 1px solid var(--gold);
+      border-radius: 20px;
+      padding: 5px 12px;
+      font-family: inherit;
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: var(--choco);
+      cursor: pointer;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      background: linear-gradient(180deg, rgba(38, 22, 16, 0.65) 0%, rgba(143, 45, 25, 0.85) 100%),
+                  url('https://images.unsplash.com/photo-1535254973040-607b474cb50d?auto=format&fit=crop&w=1000&q=80') center/cover no-repeat;
+      color: #FFF;
+      padding: 44px 20px 38px;
+      text-align: center;
+      border-bottom: 4px solid var(--gold);
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(0, 0, 0, 0.55);
+      border: 1px solid var(--gold);
+      padding: 5px 14px;
+      border-radius: 30px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .dot-open {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #4CAF50;
+      box-shadow: 0 0 8px #4CAF50;
+    }
+
+    .hero h1 {
+      font-size: 2rem;
+      font-weight: 900;
+      margin-bottom: 6px;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.4);
+    }
+
+    .hero .sub-fr {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: var(--gold-light);
+      margin-bottom: 12px;
+      letter-spacing: 1px;
+    }
+
+    .hero p {
+      font-size: 0.92rem;
+      max-width: 480px;
+      margin: 0 auto 22px;
+      opacity: 0.95;
+    }
+
+    .hero-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      max-width: 420px;
+      margin: 0 auto;
+    }
+
+    .btn-gold {
+      flex: 1;
+      min-width: 170px;
+      background: linear-gradient(135deg, var(--gold) 0%, #B8860B 100%);
+      color: #1F1209;
+      font-weight: 800;
+      font-size: 0.9rem;
+      padding: 13px 18px;
+      border-radius: 12px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 6px 18px rgba(212, 175, 55, 0.35);
+    }
+
+    .btn-outline-light {
+      flex: 1;
+      min-width: 170px;
+      background: rgba(255, 255, 255, 0.12);
+      color: #FFF;
+      font-weight: 700;
+      font-size: 0.88rem;
+      padding: 13px 18px;
+      border-radius: 12px;
+      text-decoration: none;
+      border: 1.5px solid #FFF;
+    }
+
+    /* Points Forts */
+    .trust-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      max-width: 800px;
+      margin: -22px auto 24px;
+      padding: 0 14px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .trust-item {
+      background: #FFF;
+      border: 1px solid rgba(212, 175, 55, 0.45);
+      border-radius: 14px;
+      padding: 12px 8px;
+      text-align: center;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .trust-item .icon {
+      font-size: 1.4rem;
+      margin-bottom: 2px;
+    }
+
+    .trust-item strong {
+      display: block;
+      font-size: 0.78rem;
+      color: var(--terracotta);
+    }
+
+    .trust-item span {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    /* Conteneur Global */
+    .container {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin: 28px 0 18px;
+    }
+
+    .section-title h2 {
+      font-size: 1.45rem;
+      font-weight: 900;
+      color: var(--terracotta);
+    }
+
+    .section-title p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* Catalogue & Filtres */
+    .category-tabs {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      margin-bottom: 16px;
+      scrollbar-width: none;
+    }
+
+    .category-tabs::-webkit-scrollbar { display: none; }
+
+    .cat-btn {
+      white-space: nowrap;
+      border: 1px solid #DEC8B8;
+      background: #FFF;
+      color: var(--choco);
+      padding: 8px 16px;
+      border-radius: 24px;
+      font-family: inherit;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .cat-btn.active {
+      background: var(--terracotta);
+      color: #FFF;
+      border-color: var(--terracotta);
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 16px;
+    }
+
+    .product-card {
+      background: #FFF;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid #EFE4D8;
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-img {
+      height: 165px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .badge-tag {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: var(--terracotta);
+      color: #FFF;
+      font-size: 0.7rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 20px;
+      border: 1px solid var(--gold);
+    }
+
+    .product-body {
+      padding: 14px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .product-title {
+      font-size: 1rem;
+      font-weight: 800;
+      margin-bottom: 4px;
+      color: var(--choco);
+    }
+
+    .product-desc {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .product-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid #F3EAE0;
+      padding-top: 10px;
+    }
+
+    .price-tag {
+      font-size: 1.05rem;
+      font-weight: 900;
+      color: var(--terracotta);
+    }
+
+    .add-btn {
+      background: var(--choco);
+      color: var(--gold-light);
+      border: none;
+      padding: 7px 14px;
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 0.8rem;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .add-btn:active {
+      transform: scale(0.95);
+    }
+
+    /* Configurateur de Gâteau Sur-Mesure (Mariage / Anniversaire) */
+    .customizer-box {
+      background: linear-gradient(135deg, #FFFDF9 0%, #F9EFE2 100%);
+      border: 2px solid var(--terracotta);
+      border-radius: 22px;
+      padding: 22px 18px;
+      margin: 34px 0;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+    }
+
+    .customizer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 800;
+      margin-bottom: 5px;
+      color: var(--choco);
+    }
+
+    .form-group select, .form-group input {
+      width: 100%;
+      padding: 11px 12px;
+      border-radius: 10px;
+      border: 1px solid #D6C1B1;
+      background: #FFF;
+      font-family: inherit;
+      font-size: 0.86rem;
+      color: var(--choco);
+    }
+
+    .estimate-bar {
+      background: var(--choco);
+      color: #FFF;
+      border-radius: 14px;
+      padding: 14px 16px;
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border: 1px solid var(--gold);
+    }
+
+    .estimate-bar .est-price {
+      font-size: 1.3rem;
+      font-weight: 900;
+      color: var(--gold-light);
+    }
+
+    .btn-wa-custom {
+      margin-top: 12px;
+      width: 100%;
+      background: var(--green-wa);
+      color: #FFF;
+      border: none;
+      padding: 14px;
+      border-radius: 12px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 6px 16px rgba(37, 211, 102, 0.3);
+    }
+
+    /* Section Bouclier d'Avis Intégré */
+    .review-shield {
+      background: #FFF;
+      border: 2px solid var(--gold);
+      border-radius: 22px;
+      padding: 24px 18px;
+      text-align: center;
+      margin-bottom: 30px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .stars-pick {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin: 14px 0;
+      direction: ltr;
+    }
+
+    .star-s {
+      background: none;
+      border: none;
+      font-size: 2.2rem;
+      cursor: pointer;
+      color: #E0D6CC;
+      transition: transform 0.15s, color 0.15s;
+    }
+
+    .star-s.active {
+      color: var(--gold);
+    }
+
+    .shield-panel {
+      display: none;
+      margin-top: 12px;
+      padding: 14px;
+      border-radius: 12px;
+      background: var(--cream-alt);
+    }
+
+    /* Localisation & Horaires */
+    .info-card {
+      background: var(--choco);
+      color: #FFF;
+      border-radius: 22px;
+      padding: 24px 18px;
+      margin-bottom: 24px;
+      text-align: center;
+      border: 1px solid var(--gold);
+    }
+
+    .info-card h3 {
+      color: var(--gold-light);
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+    }
+
+    .info-card p {
+      font-size: 0.88rem;
+      opacity: 0.9;
+      margin-bottom: 14px;
+    }
+
+    /* Barre Panier Flottante */
+    .floating-cart {
+      position: fixed;
+      bottom: 14px;
+      left: 14px;
+      right: 14px;
+      max-width: 500px;
+      margin: 0 auto;
+      background: linear-gradient(135deg, var(--terracotta) 0%, var(--terracotta-dark) 100%);
+      color: #FFF;
+      border: 2px solid var(--gold);
+      border-radius: 16px;
+      padding: 12px 16px;
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 200;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+    }
+
+    .cart-info {
+      font-size: 0.9rem;
+      font-weight: 800;
+    }
+
+    .cart-btn {
+      background: var(--green-wa);
+      color: #FFF;
+      border: none;
+      padding: 9px 16px;
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 0.84rem;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      padding: 16px;
+      direction: ltr;
+    }
+
+    #pause-screen {
+      display: none;
+      min-height: 80vh;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 24px;
+      direction: ltr;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ÉCRAN DE PAUSE À DISTANCE -->
+  <div id="pause-screen">
+    <div style="font-size:3rem;margin-bottom:10px;">⏸️</div>
+    <h2 style="color:var(--terracotta);margin-bottom:8px;">Site en pause — Contactez Nadarly</h2>
+    <p style="color:var(--text-muted);max-width:360px;">Ce portail web est temporairement désactivé. Contactez l'équipe Nadarly pour sa réactivation.</p>
+  </div>
+
+  <div id="site-wrapper">
+    <!-- BARRE DÉMO NADARLY (Masquable en 1 clic) -->
+    <div class="demo-bar" id="demo-bar">
+      <div>✨ Maquette Officielle préparée par <span>Nadarly</span> pour <span>Pâtisserie Loubane</span></div>
+      <button onclick="document.getElementById('demo-bar').style.display='none'">Masquer ✕</button>
+    </div>
+
+    <!-- HEADER -->
+    <header>
+      <div class="brand-wrap">
+        <div class="brand-badge">🎂</div>
+        <div class="brand-names">
+          <span class="ar">حلويات اللوبان</span>
+          <span class="fr">Pâtisserie Loubane • Laâyoune</span>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button class="lang-toggle" id="lang-switch-btn" onclick="toggleLanguage()">🇫🇷 Français</button>
+      </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <div class="status-pill">
+        <span class="dot-open"></span>
+        <span id="t-status">مفتوح الآن فالعيون • إلى غاية 23:00 ليلاً</span>
+      </div>
+      <h1 id="t-hero-title">حلويات اللوبان — فن الحلويات الراقية</h1>
+      <div class="sub-fr">L'Art de la Pâtisserie & des Grands Événements</div>
+      <p id="t-hero-desc">
+        أجود الحلويات المغربية والعصرية، طورطات الأعراس وأعياد الميلاد تحت الطلب فالعيون. كوموندي دابا عبر واتساب بلا عمولة!
+      </p>
+      <div class="hero-btns">
+        <a href="#customizer" class="btn-gold" id="t-btn-cake">🎂 صايب طورطة المناسبة ديالك</a>
+        <a href="#catalogue" class="btn-outline-light" id="t-btn-menu">🥐 شوف القائمة والأثمنة</a>
+      </div>
+    </section>
+
+    <!-- ATOUTS -->
+    <div class="trust-strip">
+      <div class="trust-item">
+        <div class="icon">👩‍🍳</div>
+        <strong id="t-tr1-t">جودة وطراوة يومية</strong>
+        <span id="t-tr1-s">100% Fait Maison</span>
+      </div>
+      <div class="trust-item">
+        <div class="icon">💍</div>
+        <strong id="t-tr2-t">طورطات المناسبات</strong>
+        <span id="t-tr2-s">Mariages & Anniversaires</span>
+      </div>
+      <div class="trust-item">
+        <div class="icon">📲</div>
+        <strong id="t-tr3-t">كوموند سريعة</strong>
+        <span id="t-tr3-s">Direct WhatsApp</span>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- CATALOGUE INTERACTIF -->
+      <div class="section-title" id="catalogue">
+        <h2 id="t-cat-title">✨ إبداعاتنا المختارة (Nos Spécialités)</h2>
+        <p id="t-cat-sub">ختار لي شهيتي وصيفط الكوموند ديالك فـ كليك واحد</p>
+      </div>
+
+      <div class="category-tabs">
+        <button class="cat-btn active" onclick="filterMenu('all', this)" id="tab-all">الكل (Tout)</button>
+        <button class="cat-btn" onclick="filterMenu('cakes', this)" id="tab-cakes">🎂 طورطات وحلويات لاكريم</button>
+        <button class="cat-btn" onclick="filterMenu('beldi', this)" id="tab-beldi">🍯 حلويات مغربية وبلاطويات</button>
+        <button class="cat-btn" onclick="filterMenu('viennoiserie', this)" id="tab-vienn">🥐 كرواصة ومملحات</button>
+      </div>
+
+      <div class="products-grid" id="products-list">
+        <!-- Produit 1 -->
+        <div class="product-card" data-cat="cakes">
+          <div class="product-img" style="background-image:url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=600&q=80')">
+            <span class="badge-tag">⭐ الأكثر طلباً</span>
+          </div>
+          <div class="product-body">
+            <div>
+              <div class="product-title">طورطة رويال شوكولا براليني (Entremets Royal)</div>
+              <p class="product-desc">شوكولا بلجيكية، طبقة مقرمشة باللوز والبراليني (6 إلى 8 أشخاص).</p>
+            </div>
+            <div class="product-footer">
+              <span class="price-tag">140 DH</span>
+              <button class="add-btn" onclick="addToCart('Entremets Royal Chocolat', 140)">+ أضف للسلة</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Produit 2 -->
+        <div class="product-card" data-cat="cakes">
+          <div class="product-img" style="background-image:url('https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=600&q=80')">
+            <span class="badge-tag">🍓 الفواكه الحمراء</span>
+          </div>
+          <div class="product-body">
+            <div>
+              <div class="product-title">طورطة الفريز والفواكه الحمراء (Fraisier Loubane)</div>
+              <p class="product-desc">كريمة خفيفة، جينواز رطبة وفواكه طرية ديال النهار (8 أشخاص).</p>
+            </div>
+            <div class="product-footer">
+              <span class="price-tag">150 DH</span>
+              <button class="add-btn" onclick="addToCart('Fraisier Loubane', 150)">+ أضف للسلة</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Produit 3 -->
+        <div class="product-card" data-cat="beldi">
+          <div class="product-img" style="background-image:url('https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=600&q=80')">
+            <span class="badge-tag">👑 اللوز الحر</span>
+          </div>
+          <div class="product-body">
+            <div>
+              <div class="product-title">بلاطو حلويات اللوز برستيج (1 كيلو)</div>
+              <p class="product-desc">تشكيلة كعب غزال، محنشة، غريبة وحلويات اللوز الملكية للمناسبات والضياف.</p>
+            </div>
+            <div class="product-footer">
+              <span class="price-tag">160 DH</span>
+              <button class="add-btn" onclick="addToCart('Plateau Prestiges Amandes 1Kg', 160)">+ أضف للسلة</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Produit 4 -->
+        <div class="product-card" data-cat="beldi">
+          <div class="product-img" style="background-image:url('https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80')">
+            <span class="badge-tag">🎁 بواطة عائلية</span>
+          </div>
+          <div class="product-body">
+            <div>
+              <div class="product-title">بواطة صابلي برستيج مشكل (1 كيلو)</div>
+              <p class="product-desc">صابلي مقرمش باللوز، النوكا والشوكولا الراقية.</p>
+            </div>
+            <div class="product-footer">
+              <span class="price-tag">110 DH</span>
+              <button class="add-btn" onclick="addToCart('Boîte Sablés Prestige 1Kg', 110)">+ أضف للسلة</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Produit 5 -->
+        <div class="product-card" data-cat="viennoiserie">
+          <div class="product-img" style="background-image:url('https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=600&q=80')">
+            <span class="badge-tag">🥐 فطور وكوطي</span>
+          </div>
+          <div class="product-body">
+            <div>
+              <div class="product-title">بوكس الفطور والكوطي العائلي (12 قطعة)</div>
+              <p class="product-desc">كرواصة بالزبدة، شنيك، كرص، وبريوش سخون ديال الصباح أو العشية.</p>
+            </div>
+            <div class="product-footer">
+              <span class="price-tag">45 DH</span>
+              <button class="add-btn" onclick="addToCart('Box Viennoiserie 12 pcs', 45)">+ أضف للسلة</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Produit 6 -->
+        <div class="product-card" data-cat="viennoiserie">
+          <div class="product-img" style="background-image:url('https://images.unsplash.com/photo-1621303837174-89787a7d4729?auto=format&fit=crop&w=600&q=80')">
+            <span class="badge-tag">🍰 لي سواري</span>
+          </div>
+          <div class="product-body">
+            <div>
+              <div class="product-title">بلاطو لترونش ولي سواري (10 قطع)</div>
+              <p class="product-desc">تشكيلة باتيسري فردية: ميلفوي، إكلير، طارطوليت الفواكه وتيراميسو.</p>
+            </div>
+            <div class="product-footer">
+              <span class="price-tag">85 DH</span>
+              <button class="add-btn" onclick="addToCart('Plateau Soirées 10 pcs', 85)">+ أضف للسلة</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CONFIGURATEUR DE GÂTEAU SUR-MESURE (MARIAGE / ANNIVERSAIRE) -->
+      <div class="customizer-box" id="customizer">
+        <div class="section-title" style="margin-top:0;">
+          <h2 id="t-cust-title">💍 صمّم طورطة العرس أو عيد الميلاد تحت الطلب</h2>
+          <p id="t-cust-sub">Configurez votre pièce montée ou gâteau personnalisé en 30 secondes</p>
+        </div>
+
+        <div class="customizer-grid">
+          <div class="form-group">
+            <label id="l-occ">1. نوع المناسبة (Occasion) :</label>
+            <select id="cake-occ" onchange="updateEstimate()">
+              <option value="عيد ميلاد (Anniversaire)" data-mult="1">🎂 عيد ميلاد (Anniversaire)</option>
+              <option value="عرس / خطوبة (Mariage / Fiançailles)" data-mult="1.35">💍 عرس / خطوبة — Pièce Montée</option>
+              <option value="سبوع / عقيقة (Sbou3 / Naissance)" data-mult="1.15">👶 سبوع / عقيقة (Sbou3)</option>
+              <option value="حفلة تخرج / نجاح (Réussite)" data-mult="1.05">🎓 حفلة نجاح / تخرج</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label id="l-size">2. الحجم وعدد الأشخاص (Taille & Étages) :</label>
+            <select id="cake-size" onchange="updateEstimate()">
+              <option value="طابق واحد — 8 إلى 10 أشخاص" data-base="130">طابق 1 (8 - 10 أشخاص)</option>
+              <option value="طابق كبير — 15 إلى 20 شخص" data-base="220">حجم عائلي (15 - 20 شخص)</option>
+              <option value="طابقين (2 Étages) — 30 شخص" data-base="380">طابقين 2 Étages (حوالي 30 شخص)</option>
+              <option value="3 طوابق ملكية (Pièce Montée Mariage)" data-base="650">3 طوابق ملكية (Pièce Montée 50+ أشخاص)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label id="l-flav">3. المذاق المفضل (Saveur) :</label>
+            <select id="cake-flavor">
+              <option value="شوكولا رويال وبراليني (Chocolat Praliné)">🍫 شوكولا رويال واللوز (Chocolat Praliné)</option>
+              <option value="الفواكه الحمراء وفاني (Fruits Rouges & Vanille)">🍓 الفواكه الحمراء وفاني</option>
+              <option value="كراميل سبيكولوس (Caramel Spéculoos)">🍯 كراميل وسبيكولوس</option>
+              <option value="الحامض والمورانغ (Citron Meringué)">🍋 الحامض والمورانغ</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label id="l-msg">4. شنو نكتبو ليك فوق الطورطة؟ (Message sur le gâteau) :</label>
+            <input type="text" id="cake-text" placeholder="مثال: Joyeux Anniversaire Sara / ألف مبروك العرس...">
+          </div>
+
+          <div class="form-group">
+            <label id="l-date">5. نهار ووقت الاستلام (Date & Heure souhaitées) :</label>
+            <input type="text" id="cake-date" placeholder="مثال: السبت الجاي مع 19:00">
+          </div>
+        </div>
+
+        <div class="estimate-bar">
+          <span id="t-est-label">الثمن التقريبي (Estimation) :</span>
+          <span class="est-price" id="est-price-val">130 DH</span>
+        </div>
+
+        <button class="btn-wa-custom" onclick="sendCustomCakeOrder()" id="t-btn-send-cake">
+          📲 صيفط طلب الطورطة مباشرة فـ WhatsApp
+        </button>
+      </div>
+
+      <!-- BOUCLIER D'AVIS GOOGLE INTÉGRÉ -->
+      <div class="review-shield" id="avis">
+        <h2 style="color:var(--terracotta);font-size:1.3rem;" id="t-rev-title">⭐ كيفاش جاتكم تجربتكم مع حلويات اللوبان؟</h2>
+        <p style="font-size:0.84rem;color:var(--text-muted);" id="t-rev-sub">عطينا رأيك وربح حليوة فابور فالمجي الجاي ديالك!</p>
+
+        <div class="stars-pick">
+          <button class="star-s" onclick="rateShield(1)">★</button>
+          <button class="star-s" onclick="rateShield(2)">★</button>
+          <button class="star-s" onclick="rateShield(3)">★</button>
+          <button class="star-s" onclick="rateShield(4)">★</button>
+          <button class="star-s" onclick="rateShield(5)">★</button>
+        </div>
+
+        <!-- 1-3 étoiles -->
+        <div class="shield-panel" id="shield-low">
+          <p style="font-size:0.84rem;font-weight:700;margin-bottom:8px;">🍰 المسير كيتصنط ليك مباشرة باش يرضيك فالحين:</p>
+          <textarea id="shield-msg" style="width:100%;padding:9px;border-radius:8px;border:1px solid #CCC;margin-bottom:8px;" placeholder="كتب ملاحظتك هنا..."></textarea>
+          <button class="btn-wa-custom" style="margin-top:0;padding:10px;" onclick="sendShieldFeedback()">💬 صيفط ملاحظة خاصة للمسير</button>
+        </div>
+
+        <!-- 4-5 étoiles -->
+        <div class="shield-panel" id="shield-high">
+          <p style="font-size:0.86rem;font-weight:700;margin-bottom:10px;">🎉 الله يحفظك! حط 5 نجمات فـ Google Maps وورّي الشاشة فـ لاكيس باش تاخد الكادو ديالك:</p>
+          <a href="https://maps.app.goo.gl/Pdtjxv7u3D6sdgjB6?g_st=ac" target="_blank" class="btn-gold" style="display:inline-block;">⭐ افتح Google Maps وحط 5 نجمات</a>
+        </div>
+      </div>
+
+      <!-- INFOS & GOOGLE MAPS -->
+      <div class="info-card">
+        <h3>📍 حلويات اللوبان — العيون (Laâyoune)</h3>
+        <p>قرب شارع المسيرة الخضراء / يعقوب المنصور — مفتوح كل يوم إلى غاية 23:00 ليلاً</p>
+        <a href="https://maps.app.goo.gl/Pdtjxv7u3D6sdgjB6?g_st=ac" target="_blank" class="btn-gold" style="display:inline-block;">🗺️ فتح الموقع فـ Google Maps (Itinéraire)</a>
+      </div>
+    </div>
+
+    <!-- BARRE PANIER FLOTTANTE -->
+    <div class="floating-cart" id="floating-cart">
+      <div class="cart-info" id="cart-summary">🛒 السلة: 0 درهم</div>
+      <button class="cart-btn" onclick="checkoutCart()">📲 تأكيد الطلب (WhatsApp)</button>
+    </div>
+
+    <footer>
+      © 2026 Pâtisserie Loubane Laâyoune • Site & Bouclier d'Avis propulsés par <strong>Nadarly</strong>
+    </footer>
+  </div>
+
+  <script>
+    // =========================================================================
+    // CONFIGURATION NADARLY (MODIFIABLE EN 10 SECONDES SUR GITHUB)
+    // =========================================================================
+    const SERVICE_ACTIF = true; // false = coupe le site à distance
+    const MODE_DEMO = true; // false = cache la barre noire de démo en haut
+    const WHATSAPP_GERANT = "212600000000"; // Numéro WhatsApp du gérant de Loubane
+    const GOOGLE_MAPS_URL = "https://maps.app.goo.gl/Pdtjxv7u3D6sdgjB6?g_st=ac";
+    // =========================================================================
+
+    if (!SERVICE_ACTIF) {
+      document.getElementById('site-wrapper').style.display = 'none';
+      document.getElementById('pause-screen').style.display = 'flex';
+    }
+    if (!MODE_DEMO) {
+      document.getElementById('demo-bar').style.display = 'none';
+    }
+
+    // Panier Express
+    let cart = [];
+    function addToCart(name, price) {
+      cart.push({ name, price });
+      renderCart();
+    }
+
+    function renderCart() {
+      const bar = document.getElementById('floating-cart');
+      const sum = document.getElementById('cart-summary');
+      if (cart.length === 0) {
+        bar.style.display = 'none';
+        return;
+      }
+      const total = cart.reduce((acc, item) => acc + item.price, 0);
+      bar.style.display = 'flex';
+      sum.textContent = `🛒 السلة (${cart.length}) : ${total} DH`;
+    }
+
+    function checkoutCart() {
+      const total = cart.reduce((acc, item) => acc + item.price, 0);
+      const list = cart.map(i => `- ${i.name} (${i.price} DH)`).join('%0A');
+      const text = `السلام عليكم *حلويات اللوبان* 🎂،%0Aبغيت نكوموندي من الموقع ديالكم:%0A%0A${list}%0A%0A💰 *المجموع:* ${total} DH%0A📍 شكراً تأكدو ليا واجد!`;
+      window.location.href = `https://wa.me/${WHATSAPP_GERANT}?text=${text}`;
+    }
+
+    // Filtre Catalogue
+    function filterMenu(cat, btn) {
+      document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.product-card').forEach(card => {
+        if (cat === 'all' || card.getAttribute('data-cat') === cat) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Configurateur de Gâteau Sur-Mesure
+    function updateEstimate() {
+      const occSel = document.getElementById('cake-occ');
+      const sizeSel = document.getElementById('cake-size');
+      const mult = parseFloat(occSel.options[occSel.selectedIndex].getAttribute('data-mult'));
+      const base = parseFloat(sizeSel.options[sizeSel.selectedIndex].getAttribute('data-base'));
+      const price = Math.round((base * mult) / 10) * 10;
+      document.getElementById('est-price-val').textContent = `~ ${price} DH`;
+    }
+
+    function sendCustomCakeOrder() {
+      const occ = document.getElementById('cake-occ').value;
+      const size = document.getElementById('cake-size').value;
+      const flav = document.getElementById('cake-flavor').value;
+      const msg = document.getElementById('cake-text').value.trim() || 'بدون كتابة';
+      const date = document.getElementById('cake-date').value.trim() || 'غير محدد';
+      const est = document.getElementById('est-price-val').textContent;
+
+      const text = `السلام عليكم *حلويات اللوبان* 🎂،%0Aبغيت نصايب طورطة تحت الطلب:%0A%0A` +
+                   `🎉 *المناسبة:* ${encodeURIComponent(occ)}%0A` +
+                   `📏 *الحجم:* ${encodeURIComponent(size)}%0A` +
+                   `🍓 *المذاق:* ${encodeURIComponent(flav)}%0A` +
+                   `✍️ *الكتابة فوق الطورطة:* ${encodeURIComponent(msg)}%0A` +
+                   `📅 *الموعد:* ${encodeURIComponent(date)}%0A` +
+                   `💰 *الثمن التقريبي:* ${encodeURIComponent(est)}`;
+      window.location.href = `https://wa.me/${WHATSAPP_GERANT}?text=${text}`;
+    }
+
+    // Bouclier d'Avis intégré
+    let shieldRating = 0;
+    function rateShield(val) {
+      shieldRating = val;
+      const stars = document.querySelectorAll('.star-s');
+      stars.forEach((s, idx) => s.classList.toggle('active', idx < val));
+      document.getElementById('shield-low').style.display = val <= 3 ? 'block' : 'none';
+      document.getElementById('shield-high').style.display = val >= 4 ? 'block' : 'none';
+    }
+
+    function sendShieldFeedback() {
+      const msg = document.getElementById('shield-msg').value.trim() || 'ملاحظة عامة';
+      const text = `السلام عليكم مسير *حلويات اللوبان*،%0A⭐ التقييم: ${shieldRating}/5%0A💬 الملاحظة: ${encodeURIComponent(msg)}`;
+      window.location.href = `https://wa.me/${WHATSAPP_GERANT}?text=${text}`;
+    }
+
+    // Bascule Bilingue Arabe / Français
+    let isFr = false;
+    function toggleLanguage() {
+      isFr = !isFr;
+      const root = document.getElementById('html-root');
+      const btn = document.getElementById('lang-switch-btn');
+      if (isFr) {
+        root.setAttribute('dir', 'ltr');
+        root.setAttribute('lang', 'fr');
+        btn.textContent = '🇲🇦 العربية';
+        document.getElementById('t-status').textContent = 'Ouvert actuellement à Laâyoune • Ferme à 23h00';
+        document.getElementById('t-hero-title').textContent = 'Pâtisserie Loubane — Haute Pâtisserie';
+        document.getElementById('t-hero-desc').textContent = 'Pâtisseries fines, gâteaux marocains au pur amande et pièces montées sur-mesure à Laâyoune. Commandez en 1 clic sur WhatsApp !';
+        document.getElementById('t-btn-cake').textContent = '🎂 Créer mon Gâteau Sur-Mesure';
+        document.getElementById('t-btn-menu').textContent = '🥐 Voir la Carte & Prix';
+        document.getElementById('t-cat-title').textContent = '✨ Notre Carte Gourmande';
+        document.getElementById('t-cat-sub').textContent = 'Ajoutez vos douceurs au panier et commandez en direct sur WhatsApp';
+        document.getElementById('t-cust-title').textContent = '💍 Configurateur de Gâteau (Mariage & Anniversaire)';
+      } else {
+        root.setAttribute('dir', 'rtl');
+        root.setAttribute('lang', 'ar');
+        btn.textContent = '🇫🇷 Français';
+        document.getElementById('t-status').textContent = 'مفتوح الآن فالعيون • إلى غاية 23:00 ليلاً';
+        document.getElementById('t-hero-title').textContent = 'حلويات اللوبان — فن الحلويات الراقية';
+        document.getElementById('t-hero-desc').textContent = 'أجود الحلويات المغربية والعصرية، طورطات الأعراس وأعياد الميلاد تحت الطلب فالعيون. كوموندي دابا عبر واتساب بلا عمولة!';
+        document.getElementById('t-btn-cake').textContent = '🎂 صايب طورطة المناسبة ديالك';
+        document.getElementById('t-btn-menu').textContent = '🥐 شوف القائمة والأثمنة';
+        document.getElementById('t-cat-title').textContent = '✨ إبداعاتنا المختارة (Nos Spécialités)';
+        document.getElementById('t-cat-sub').textContent = 'ختار لي شهيتي وصيفط الكوموند ديالك فـ كليك واحد';
+        document.getElementById('t-cust-title').textContent = '💍 صمّم طورطة العرس أو عيد الميلاد تحت الطلب';
+      }
+    }
+  </script>
+</body>
+</html>
